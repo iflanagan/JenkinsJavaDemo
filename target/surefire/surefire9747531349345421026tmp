@@ -1,5 +1,5 @@
 #surefire
-#Tue Sep 29 15:27:33 CDT 2020
+#Tue Sep 29 15:39:51 CDT 2020
 classPathUrl.4=/Users/ianflanagan/.m2/repository/com/rollbar/rollbar-api/1.7.5/rollbar-api-1.7.5.jar
 testSuiteDefinitionTestSourceDirectory=/Users/ianflanagan/Workspace/Demos/JenkinsJavaDemo/src/test/java
 includes1=**/*Test.java

@@ -12,7 +12,7 @@ public class MyConfiguration {
     public static final String rollbarAccessToken = "<yourtoken>";
 
     // Provider info
-    public static final String myRoot = "com.IanFlanagan"; // e81d3f3f5eb2469ab02de5ec919007d4
+    public static final String myRoot = "com.IanFlanagan";
     public static final String myHost = "localhost";
     public static final String myBranch = "master";
     public static final String myCodeVersion = "1.0.1";

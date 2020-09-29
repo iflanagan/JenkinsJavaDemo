@@ -21,10 +21,10 @@ class ServerProvider implements Provider<Server> {
     @Override
     public Server provide() {
         return new Server.Builder()
-                .codeVersion("1.0.1")
-                .branch("master")
-                .host("Abc")
-                .root("com.IanFlanagan")
+                .codeVersion(MyConfiguration.myCodeVersion)
+                .branch(MyConfiguration.myBranch)
+                .host(MyConfiguration.myHost)
+                .root(MyConfiguration.myRoot)
                 .build();
     }
 }

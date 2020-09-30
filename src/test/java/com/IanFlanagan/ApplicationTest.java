@@ -20,7 +20,7 @@ public class ApplicationTest {
     private static Level CONFIG;
 
     @Test
-    public void generateDataRB() throws Exception {
+    public void generateData() throws Exception {
 
         System.out.println("Starting rollbar test to generate Data");
 
@@ -42,13 +42,15 @@ public class ApplicationTest {
 
         try
         {
-            throw new RuntimeException("Major Issue");
+            throw new RuntimeException("New Runtime exception");
         } catch (Exception e) {
 
+            rollbar.critical(e, " Ian test: " +i+ " now");
+/*
             for (int i=0;i<=50; i++ ) {
 
-                rollbar.log("Hello, Rollbar this is message number: " +i+ " in case you were wondering");
-                rollbar.critical(e, " Critical error: " +i+ " now");
+             rollbar.log("Hello, Rollbar this is message number: " +i+ " in case you were wondering");
+                rollbar.critical(e, " Ian test: " +i+ " now");
                 rollbar.info("Theres a problem");
                 rollbar.warning(e);
                 rollbar.log(e,"Error log");
@@ -57,10 +59,7 @@ public class ApplicationTest {
                 rollbar.log(e,"RuntimeException");
                 rollbar.log(e, myRollbarMap, "Big time issue", SEVERE, true);
 
-            //    rollbar.error();
-
-
-            }
+            }*/
         } finally {
 
             rollbar.close(true);

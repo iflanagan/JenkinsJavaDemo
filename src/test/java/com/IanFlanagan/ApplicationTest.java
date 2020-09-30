@@ -45,7 +45,7 @@ public class ApplicationTest {
             throw new RuntimeException("New Runtime exception");
         } catch (Exception e) {
 
-            rollbar.critical(e, " Ian test: " +i+ " now");
+            rollbar.critical(e, " Ian test: now");
 /*
             for (int i=0;i<=50; i++ ) {
 

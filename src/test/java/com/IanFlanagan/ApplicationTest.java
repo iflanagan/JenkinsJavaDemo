@@ -45,11 +45,10 @@ public class ApplicationTest {
             throw new RuntimeException("New Runtime exception");
         } catch (Exception e) {
 
-            rollbar.critical(e, " Ian test: now");
-/*
             for (int i=0;i<=50; i++ ) {
 
-             rollbar.log("Hello, Rollbar this is message number: " +i+ " in case you were wondering");
+                rollbar.critical(e, " Ian test: now");
+                rollbar.log("Hello, Rollbar this is message number: " +i+ " in case you were wondering");
                 rollbar.critical(e, " Ian test: " +i+ " now");
                 rollbar.info("Theres a problem");
                 rollbar.warning(e);
@@ -59,7 +58,7 @@ public class ApplicationTest {
                 rollbar.log(e,"RuntimeException");
                 rollbar.log(e, myRollbarMap, "Big time issue", SEVERE, true);
 
-            }*/
+            }
         } finally {
 
             rollbar.close(true);

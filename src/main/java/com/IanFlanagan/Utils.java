@@ -29,20 +29,12 @@ public class Utils {
                     .server(new ServerProvider())
                     .build());
 
-
         } catch (Exception e) {
 
             System.out.printf("can't create rollbar instance: " +e.getMessage());
             e.printStackTrace();
             rollbar = null;
         }
-
-       /* Config config = withAccessToken(accessToken)
-                .environment(environment)
-                .codeVersion(version)
-                .build();
-        rollbar = Rollbar.init(config);
-        return rollbar;*/
         return rollbar;
     }
 }

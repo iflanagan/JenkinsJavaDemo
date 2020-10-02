@@ -5,6 +5,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import com.rollbar.notifier.Rollbar;
+import org.junit.runners.Parameterized;
 
 
 import java.util.HashMap;
@@ -31,9 +32,33 @@ public class ApplicationTest {
          */
 
     @Test
+    public void createMoreErrors() {
+
+        System.out.println("Starting rollbar test to call createMoreErrors() method");
+
+        Rollbar rollbar = Rollbar.init(withAccessToken(System.getenv("ROLLBAR_ACCESS_TOKEN"))
+                .environment(System.getenv("ENVIRONMENT"))
+                .codeVersion(System.getenv("CODE_VERSION"))
+                .person(new MyPersonProvider())
+                .server(new ServerProvider())
+                .build());
+
+        try
+        {
+            throw new RuntimeException("New Runtime exception");
+
+        } catch (Exception e) {
+
+            rollbar.critical(e,"createMoreErrors() runtime exception");
+
+        }
+    }
+
+    @Test
     public void createErrorsRB() throws Exception {
 
-        System.out.println("Starting rollbar test to generate Data");
+        System.out.println("Starting rollbar test to call creatErrorsRB() method");
+
         Rollbar rollbar = Rollbar.init(withAccessToken(System.getenv("ROLLBAR_ACCESS_TOKEN"))
                 .environment(System.getenv("ENVIRONMENT"))
                 .codeVersion(System.getenv("CODE_VERSION"))
@@ -67,16 +92,13 @@ public class ApplicationTest {
             rollbar.close(true);
         }
 
-
-
     }
 
     @Test
     public void generateData() throws Exception {
 
-      //  Rollbar rollbar = Utils.createRBinstanceConfig(System.getenv("ROLLBAR_ACCESS_TOKEN"),System.getenv("ENVIRONMENT"),System.getenv("CODE_VERSION"));
+        System.out.println("Starting rollbar test to generateData() test method");
 
-        System.out.println("Starting rollbar test to generate Data");
         Rollbar rollbar = Rollbar.init(withAccessToken(System.getenv("ROLLBAR_ACCESS_TOKEN"))
                 .environment(System.getenv("ENVIRONMENT"))
                 .codeVersion(System.getenv("CODE_VERSION"))
@@ -120,8 +142,8 @@ public class ApplicationTest {
 
         try
         {
-            System.out.println("Starting rollbar test to generate Data");
-            Rollbar rollbar = Rollbar.init(withAccessToken(System.getenv("ROLLBAR_ACCESS_TOKEN"))
+            System.out.println("Calling before setup() method to create rollbar instance");
+             Rollbar rollbar = Rollbar.init(withAccessToken(System.getenv("ROLLBAR_ACCESS_TOKEN"))
                     .environment(System.getenv("ENVIRONMENT"))
                     .codeVersion(System.getenv("CODE_VERSION"))
                     .person(new MyPersonProvider())
@@ -132,17 +154,21 @@ public class ApplicationTest {
             System.out.printf("problem with before method:  " +e.getMessage());
             e.printStackTrace();
         }
-    }*/
-   /* @After
-    public void teardown() throws Exception {
+
+        System.out.println("Rollbar instance created");
+
+    }
+    @After
+    public void teardown()  {
 
         try
         {
+            System.out.println("Closing rollbar instance");
             rollbar.close(true);
         } catch (Exception e) {
-            System.out.printf("problem with tear down " +e.getMessage());
+            System.out.printf("problem with calling teardown() after method " +e.getMessage());
             e.printStackTrace();
         }
-    }*/
-
+    }
+*/
 }

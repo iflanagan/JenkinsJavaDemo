@@ -1,6 +1,7 @@
 package com.IanFlanagan;
 
 import com.rollbar.api.payload.data.Level;
+import com.rollbar.notifier.provider.Provider;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -64,6 +65,10 @@ public class ApplicationTest {
                 .codeVersion(System.getenv("CODE_VERSION"))
                 .person(new MyPersonProvider())
                 .server(new ServerProvider())
+                .framework("JUnit")
+                .language("Java")
+                .platform("MacOS")
+             //   .custom((Provider<Map<String, Object>>) myRollbarMap)
                 .build());
 
       //  Rollbar rollbar = Utils.createRBinstanceConfig(System.getenv("ROLLBAR_ACCESS_TOKEN"),System.getenv("ENVIRONMENT"),System.getenv("CODE_VERSION"));

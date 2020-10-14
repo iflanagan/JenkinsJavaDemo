@@ -5,9 +5,25 @@ import com.rollbar.api.payload.data.Level;
 public class MyConfiguration {
 
     // Person Provider info
+
+    /*
     public static final String id = "84935784903";
     public static final String email = "ian.flanagan@rollbar.com";
     public static final String username = "ianianf";
+    **
+     */
+
+
+    public static final String id = "24935784903";
+    public static final String email = "ivan.gomez@rollbar.com";
+    public static final String username = "ivan";
+
+    /*
+    public static final String id = "14935784903";
+    public static final String email = "finbar.fleming@rollbar.com";
+    public static final String username = "finbar";
+    *
+     */
 
     // Rollbar Specific info
     public static final String env = "PROD";

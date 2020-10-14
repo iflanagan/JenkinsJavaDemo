@@ -9,6 +9,7 @@ import com.rollbar.notifier.Rollbar;
 import org.junit.runners.Parameterized;
 
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -33,6 +34,33 @@ public class ApplicationTest {
         Project access tokens
         Copy the token next to where it says 'post_server_item'
          */
+
+    @Test
+    public void createFileNotFoundErrors() {
+
+        System.out.println("Starting rollbar test to call createMoreErrors() method");
+
+        Rollbar rollbar = Rollbar.init(withAccessToken(System.getenv("ROLLBAR_ACCESS_TOKEN"))
+                .environment(System.getenv("ENVIRONMENT"))
+                .codeVersion(System.getenv("CODE_VERSION"))
+                .person(new MyPersonProvider())
+                .server(new ServerProvider())
+                .build());
+
+        try
+        {
+            throw new FileNotFoundException("New File not found exception");
+
+        } catch (Exception e) {
+
+            for (int i=0; i<=50; i++) {
+
+                rollbar.critical(e,"FileNotFoundException() " +i+  " File not Found exception");
+            }
+
+
+        }
+    }
 
     @Test
     public void createMoreSQLExErrors() {

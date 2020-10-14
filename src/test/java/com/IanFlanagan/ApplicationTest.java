@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.IllegalFormatPrecisionException;
 import java.util.Map;
 
 import static com.rollbar.notifier.config.ConfigBuilder.withAccessToken;
@@ -36,6 +37,31 @@ public class ApplicationTest {
          */
 
     @Test
+    public void createErrorsAccessException() {
+
+        System.out.println("Starting rollbar test to call createMoreErrors() method");
+
+        Rollbar rollbar = Rollbar.init(withAccessToken(System.getenv("ROLLBAR_ACCESS_TOKEN"))
+                .environment(System.getenv("ENVIRONMENT"))
+                .codeVersion(System.getenv("CODE_VERSION"))
+                .person(new MyPersonProvider())
+                .server(new ServerProvider())
+                .build());
+
+        try
+        {
+            throw new IllegalAccessException("Illegal Access Exception");
+
+        } catch (Exception e) {
+
+            for (int i=0; i<=100; i++) {
+
+                rollbar.critical(e,"createErrorsAccessException() " +i+  " Illegal Access exception");
+            }
+        }
+    }
+
+    @Test
     public void createFileNotFoundErrors() {
 
         System.out.println("Starting rollbar test to call createMoreErrors() method");
@@ -53,7 +79,7 @@ public class ApplicationTest {
 
         } catch (Exception e) {
 
-            for (int i=0; i<=50; i++) {
+            for (int i=0; i<=10; i++) {
 
                 rollbar.critical(e,"FileNotFoundException() " +i+  " File not Found exception");
             }
@@ -80,7 +106,7 @@ public class ApplicationTest {
 
         } catch (Exception e) {
 
-            for (int i=0; i<=50; i++) {
+            for (int i=0; i<=5; i++) {
 
                 rollbar.critical(e,"createMoreSQLExErrors() " +i+  " SQL exception");
             }
@@ -107,7 +133,7 @@ public class ApplicationTest {
 
         } catch (Exception e) {
 
-            for (int i=0; i<= 50; i++) {
+            for (int i=0; i<= 200; i++) {
 
                 rollbar.critical(e,"createMoreIOErrors() " +i+  " IO exception");
             }
@@ -162,7 +188,7 @@ public class ApplicationTest {
             throw new RuntimeException("New Runtime exception");
         } catch (Exception e) {
 
-            for (int i=0;i<=5; i++ ) {
+            for (int i=0;i<=10; i++ ) {
 
                 rollbar.critical(e, " Ian test: now");
                 rollbar.log("Hello, Rollbar this is message number: " +i+ " in case you were wondering");

@@ -46,6 +46,9 @@ public class ApplicationTest {
                 .codeVersion(System.getenv("CODE_VERSION"))
                 .person(new MyPersonProvider())
                 .server(new ServerProvider())
+                .language("Java")
+                .framework("Junit")
+                .handleUncaughtErrors(true)
                 .build());
 
         try

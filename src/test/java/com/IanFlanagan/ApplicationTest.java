@@ -52,7 +52,11 @@ public class ApplicationTest {
 
         } catch (Exception e) {
 
-            rollbar.critical(e,"createMoreSQLExErrors() SQL exception");
+            for (int i=0; i<=50; i++) {
+
+                rollbar.critical(e,"createMoreSQLExErrors()" +i+  " SQL exception");
+            }
+
 
         }
     }
@@ -75,7 +79,11 @@ public class ApplicationTest {
 
         } catch (Exception e) {
 
-            rollbar.critical(e,"createMoreIOErrors() IO exception");
+            for (int i=0; i<= 50; i++) {
+
+                rollbar.critical(e,"createMoreIOErrors()" +i+  " IO exception");
+            }
+
 
         }
     }

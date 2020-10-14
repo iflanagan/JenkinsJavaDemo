@@ -54,7 +54,7 @@ public class ApplicationTest {
 
             for (int i=0; i<=50; i++) {
 
-                rollbar.critical(e,"createMoreSQLExErrors()" +i+  " SQL exception");
+                rollbar.critical(e,"createMoreSQLExErrors() " +i+  " SQL exception");
             }
 
 
@@ -81,7 +81,7 @@ public class ApplicationTest {
 
             for (int i=0; i<= 50; i++) {
 
-                rollbar.critical(e,"createMoreIOErrors()" +i+  " IO exception");
+                rollbar.critical(e,"createMoreIOErrors() " +i+  " IO exception");
             }
 
 

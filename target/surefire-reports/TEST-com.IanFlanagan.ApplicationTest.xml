@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="com.IanFlanagan.ApplicationTest" time="9.516" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="com.IanFlanagan.ApplicationTest" time="27.629" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="14.0.1+14"/>
@@ -58,10 +58,10 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase classname="com.IanFlanagan.ApplicationTest" name="createErrorsRB" time="6.173"/>
+  <testcase classname="com.IanFlanagan.ApplicationTest" name="createErrorsRB" time="6.223"/>
   <testcase classname="com.IanFlanagan.ApplicationTest" name="printName" time="0"/>
-  <testcase classname="com.IanFlanagan.ApplicationTest" name="createMoreIOErrors" time="0"/>
+  <testcase classname="com.IanFlanagan.ApplicationTest" name="createMoreIOErrors" time="0.001"/>
   <testcase classname="com.IanFlanagan.ApplicationTest" name="createMoreSQLExErrors" time="0.004"/>
   <testcase classname="com.IanFlanagan.ApplicationTest" name="createMoreErrors" time="0"/>
-  <testcase classname="com.IanFlanagan.ApplicationTest" name="generateData" time="3.339"/>
+  <testcase classname="com.IanFlanagan.ApplicationTest" name="generateData" time="21.401"/>
 </testsuite>

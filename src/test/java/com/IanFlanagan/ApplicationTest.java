@@ -11,6 +11,8 @@ import org.junit.runners.Parameterized;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.sql.SQLException;
 import java.util.*;
 
@@ -19,7 +21,7 @@ import static com.rollbar.notifier.config.ConfigBuilder.withAccessToken;
 public class ApplicationTest {
 
     private static Rollbar rollbar;
-    private static Map<String, Object> myRollbarMap = new HashMap<>();
+    private static HashMap<String,Object> myRollbarMap = new HashMap<>();
     private static Level WARNING;
     private static Level SEVERE;
     private static Level INFO;
@@ -36,11 +38,18 @@ public class ApplicationTest {
         Copy the token next to where it says 'post_server_item'
          */
 
-    @Test
-    public void createErrorsAccessException() {
 
-        HashMap<String,Object> myRollbarMap = new HashMap<String, Object>();
+    @Test
+    public void createErrorsAccessException() throws UnknownHostException {
+
+        String hostname = Utils.GetHostName();
+
+        /*
         myRollbarMap.put("test_id", test_id);
+        myRollbarMap.put("test_server",String.format("test_server_%d", server_id));
+        */
+
+        myRollbarMap.put(hostname, test_id);
         myRollbarMap.put("test_server",String.format("test_server_%d", server_id));
 
         System.out.println("Starting rollbar test to call createMoreErrors() method");
@@ -52,14 +61,9 @@ public class ApplicationTest {
                 .server(new ServerProvider())
                 .language("Java")
                 .framework("Junit")
-              //  .appPackages(appPackages)
                 .platform("MacOS")
-                .custom((Provider<Map<String, Object>>) myRollbarMap)
-             //   .custom(myRollbarMap<String, Object> )
                 .handleUncaughtErrors(true)
                 .build());
-
-
 
         try
         {
@@ -70,6 +74,7 @@ public class ApplicationTest {
             for (int i=0; i<=100; i++) {
 
                 rollbar.critical(e,"createErrorsAccessException() " +i+  " Illegal Access exception");
+                rollbar.critical(e,myRollbarMap);
             }
         }
     }

@@ -3,6 +3,9 @@ package com.IanFlanagan;
 import com.rollbar.notifier.Rollbar;
 import com.rollbar.notifier.config.Config;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import static com.rollbar.notifier.config.ConfigBuilder.withAccessToken;
 
 public class Utils {
@@ -11,6 +14,26 @@ public class Utils {
     private static String accessToken;
     private static String env;
     private static String version;
+
+
+    public static String GetHostName() throws UnknownHostException {
+
+        String myhost = null;
+
+        try
+        {
+            InetAddress id = InetAddress.getLocalHost();
+            String myHost = id.getHostName();
+            System.out.println(myHost);
+
+        } catch (Exception e) {
+            System.out.println("Can't get hostname: " +e.getMessage());
+
+            e.printStackTrace();
+        }
+
+        return myhost;
+    }
 
     public static Rollbar createRBinstanceConfig(String accessToken, String environment, String version) {
 

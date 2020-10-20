@@ -26,6 +26,7 @@ public class ApplicationTest {
     private static Level SEVERE;
     private static Level INFO;
     private static Level CONFIG;
+    private static Object rollbarTest;
 
       /*
         TO obtain the Rollbar Access token follow these steps
@@ -39,6 +40,8 @@ public class ApplicationTest {
     @Test
     public void createErrorsAccessException() {
 
+        myRollbarMap.put("RollbarCustomField",rollbarTest);
+
         System.out.println("Starting rollbar test to call createMoreErrors() method");
 
         Rollbar rollbar = Rollbar.init(withAccessToken(System.getenv("ROLLBAR_ACCESS_TOKEN"))
@@ -48,8 +51,12 @@ public class ApplicationTest {
                 .server(new ServerProvider())
                 .language("Java")
                 .framework("Junit")
+                .custom((Provider<Map<String, Object>>) myRollbarMap)
+             //   .custom(myRollbarMap<String, Object> )
                 .handleUncaughtErrors(true)
                 .build());
+
+
 
         try
         {

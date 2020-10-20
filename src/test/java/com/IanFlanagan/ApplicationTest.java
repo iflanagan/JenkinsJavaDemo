@@ -12,9 +12,7 @@ import org.junit.runners.Parameterized;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.IllegalFormatPrecisionException;
-import java.util.Map;
+import java.util.*;
 
 import static com.rollbar.notifier.config.ConfigBuilder.withAccessToken;
 
@@ -40,8 +38,9 @@ public class ApplicationTest {
     @Test
     public void createErrorsAccessException() {
 
-        myRollbarMap.put("RollbarCustomField",rollbarTest);
-
+        myRollbarMap.put("Rollbar Custom Field",rollbarTest);
+        List<String> appPackages = Arrays.asList("com.IanFlanagan.example");
+    
         System.out.println("Starting rollbar test to call createMoreErrors() method");
 
         Rollbar rollbar = Rollbar.init(withAccessToken(System.getenv("ROLLBAR_ACCESS_TOKEN"))
@@ -51,6 +50,8 @@ public class ApplicationTest {
                 .server(new ServerProvider())
                 .language("Java")
                 .framework("Junit")
+                .appPackages(appPackages)
+                .platform("MacOS")
                 .custom((Provider<Map<String, Object>>) myRollbarMap)
              //   .custom(myRollbarMap<String, Object> )
                 .handleUncaughtErrors(true)

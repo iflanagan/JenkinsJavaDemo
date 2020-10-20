@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="com.IanFlanagan.ApplicationTest" time="25.461" errors="1" skipped="0">
+<testsuite tests="8" failures="0" name="com.IanFlanagan.ApplicationTest" time="25.501" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="14.0.1+14"/>
@@ -58,10 +58,10 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase classname="com.IanFlanagan.ApplicationTest" name="createErrorsRB" time="9.26"/>
+  <testcase classname="com.IanFlanagan.ApplicationTest" name="createErrorsRB" time="9.014"/>
   <testcase classname="com.IanFlanagan.ApplicationTest" name="printName" time="0"/>
   <testcase classname="com.IanFlanagan.ApplicationTest" name="createFileNotFoundErrors" time="0"/>
-  <testcase classname="com.IanFlanagan.ApplicationTest" name="createErrorsAccessException" time="0.004">
+  <testcase classname="com.IanFlanagan.ApplicationTest" name="createErrorsAccessException" time="0.006">
     <error message="class java.util.HashMap cannot be cast to class com.rollbar.notifier.provider.Provider (java.util.HashMap is in module java.base of loader &apos;bootstrap&apos;; com.rollbar.notifier.provider.Provider is in unnamed module of loader &apos;app&apos;)" type="java.lang.ClassCastException">java.lang.ClassCastException: class java.util.HashMap cannot be cast to class com.rollbar.notifier.provider.Provider (java.util.HashMap is in module java.base of loader &apos;bootstrap&apos;; com.rollbar.notifier.provider.Provider is in unnamed module of loader &apos;app&apos;)
 	at com.IanFlanagan.ApplicationTest.createErrorsAccessException(ApplicationTest.java:53)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -97,8 +97,8 @@
     <system-out>Starting rollbar test to call createMoreErrors() method
 </system-out>
   </testcase>
-  <testcase classname="com.IanFlanagan.ApplicationTest" name="createMoreIOErrors" time="0.006"/>
-  <testcase classname="com.IanFlanagan.ApplicationTest" name="createMoreSQLExErrors" time="0.003"/>
-  <testcase classname="com.IanFlanagan.ApplicationTest" name="createMoreErrors" time="0"/>
-  <testcase classname="com.IanFlanagan.ApplicationTest" name="generateData" time="16.188"/>
+  <testcase classname="com.IanFlanagan.ApplicationTest" name="createMoreIOErrors" time="0.009"/>
+  <testcase classname="com.IanFlanagan.ApplicationTest" name="createMoreSQLExErrors" time="0.002"/>
+  <testcase classname="com.IanFlanagan.ApplicationTest" name="createMoreErrors" time="0.001"/>
+  <testcase classname="com.IanFlanagan.ApplicationTest" name="generateData" time="16.469"/>
 </testsuite>

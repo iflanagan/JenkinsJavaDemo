@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.IanFlanagan.ApplicationTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 25.503 sec <<< FAILURE!
-createErrorsAccessException(com.IanFlanagan.ApplicationTest)  Time elapsed: 0.004 sec  <<< ERROR!
+Tests run: 8, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 25.542 sec <<< FAILURE!
+createErrorsAccessException(com.IanFlanagan.ApplicationTest)  Time elapsed: 0.006 sec  <<< ERROR!
 java.lang.ClassCastException: class java.util.HashMap cannot be cast to class com.rollbar.notifier.provider.Provider (java.util.HashMap is in module java.base of loader 'bootstrap'; com.rollbar.notifier.provider.Provider is in unnamed module of loader 'app')
 	at com.IanFlanagan.ApplicationTest.createErrorsAccessException(ApplicationTest.java:53)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)

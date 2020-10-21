@@ -26,8 +26,8 @@ public class ApplicationTest {
     private static Level SEVERE;
     private static Level INFO;
     private static Level CONFIG;
-    private static Object test_id;
-    private static Object server_id;
+    private static Object test_id = 1234;
+    private static Object server_id = 4321;
 
       /*
         TO obtain the Rollbar Access token follow these steps
@@ -38,20 +38,20 @@ public class ApplicationTest {
         Copy the token next to where it says 'post_server_item'
          */
 
-
     @Test
     public void createErrorsAccessException() throws UnknownHostException {
 
         String hostname = Utils.GetHostName();
 
         /*
-        myRollbarMap.put("test_id", test_id);
-        myRollbarMap.put("test_server",String.format("test_server_%d", server_id));
+        myRollbarMap.put(hostname, test_id);
+        myRollbarMap.put(hostname,String.format(hostname+"_%d", server_id));
         */
 
-        myRollbarMap.put(hostname, test_id);
-        myRollbarMap.put("test_server",String.format("test_server_%d", server_id));
 
+        myRollbarMap.put(hostname, test_id);
+        myRollbarMap.put(hostname,String.format("test_server_%d", server_id));
+        
         System.out.println("Starting rollbar test to call createMoreErrors() method");
 
         Rollbar rollbar = Rollbar.init(withAccessToken(System.getenv("ROLLBAR_ACCESS_TOKEN"))

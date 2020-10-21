@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.IanFlanagan.ApplicationTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 39.521 sec
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 50.629 sec

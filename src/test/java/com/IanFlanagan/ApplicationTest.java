@@ -1,7 +1,10 @@
 package com.IanFlanagan;
 
+import com.rollbar.api.payload.Payload;
 import com.rollbar.api.payload.data.Level;
 import com.rollbar.notifier.provider.Provider;
+import com.rollbar.notifier.sender.Sender;
+import com.rollbar.notifier.sender.listener.SenderListener;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,6 +31,7 @@ public class ApplicationTest {
     private static Level CONFIG;
     private static Object test_id = 1234;
     private static Object server_id = 4321;
+    private Provider<Long> provider;
 
       /*
         TO obtain the Rollbar Access token follow these steps
@@ -41,17 +45,16 @@ public class ApplicationTest {
     @Test
     public void createErrorsAccessException() throws UnknownHostException {
 
-        String hostname = Utils.GetHostName();
+        myRollbarMap.put("test_id", test_id);
+        myRollbarMap.put("test_server",String.format("test_server_%d", server_id));
 
         /*
-        myRollbarMap.put(hostname, test_id);
-        myRollbarMap.put(hostname,String.format(hostname+"_%d", server_id));
+        myRollbarMap.put(MyConfiguration.myHost, test_id);
+        myRollbarMap.put(MyConfiguration.myHost,String.format("test_server_%d", server_id));
         */
 
+      //  long timestamp = Utils.GetTimestamp();
 
-        myRollbarMap.put(hostname, test_id);
-        myRollbarMap.put(hostname,String.format("test_server_%d", server_id));
-        
         System.out.println("Starting rollbar test to call createMoreErrors() method");
 
         Rollbar rollbar = Rollbar.init(withAccessToken(System.getenv("ROLLBAR_ACCESS_TOKEN"))
@@ -62,7 +65,8 @@ public class ApplicationTest {
                 .language("Java")
                 .framework("Junit")
                 .platform("MacOS")
-                .handleUncaughtErrors(true)
+                //.timestamp(Provider<long> timestamp)
+                 .handleUncaughtErrors(true)
                 .build());
 
         try
@@ -71,10 +75,11 @@ public class ApplicationTest {
 
         } catch (Exception e) {
 
-            for (int i=0; i<=100; i++) {
+            for (int i=0; i<=200; i++) {
 
                 rollbar.critical(e,"createErrorsAccessException() " +i+  " Illegal Access exception");
                 rollbar.critical(e,myRollbarMap);
+                rollbar.error("Error Custom Fields createErrorsAccessException(): " +i, myRollbarMap);
             }
         }
     }
@@ -106,7 +111,7 @@ public class ApplicationTest {
         }
     }
 
-    @Test
+   @Test
     public void createMoreSQLExErrors() {
 
         System.out.println("Starting rollbar test to call createMoreErrors() method");
@@ -160,7 +165,7 @@ public class ApplicationTest {
         }
     }
 
-    @Test
+   @Test
     public void createMoreErrors() {
 
         System.out.println("Starting rollbar test to call createMoreErrors() method");
@@ -227,7 +232,7 @@ public class ApplicationTest {
 
     }
 
-    @Test
+   @Test
     public void generateData() throws Exception {
 
         System.out.println("Starting rollbar test to generateData() test method");

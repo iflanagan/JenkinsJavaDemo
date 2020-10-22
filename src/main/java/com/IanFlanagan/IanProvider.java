@@ -8,6 +8,10 @@ import com.rollbar.notifier.config.ConfigProvider;
 import com.rollbar.api.payload.data.Server;
 import com.rollbar.notifier.provider.Provider;
 
+import java.util.HashMap;
+import java.util.Map;
+
+
 public class IanProvider implements ConfigProvider {
 
     @Override

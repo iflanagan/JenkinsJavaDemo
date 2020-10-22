@@ -2,15 +2,14 @@ package com.IanFlanagan;
 
 import com.rollbar.api.payload.data.Level;
 
+import java.net.UnknownHostException;
+
 public class MyConfiguration {
 
     // Person Provider info
-
-
     public static final String id = "84935784903";
     public static final String email = "ian.flanagan@rollbar.com";
     public static final String username = "ianianf";
-
 
 /*
     public static final String id = "24935784903";
@@ -33,7 +32,7 @@ public class MyConfiguration {
 
     // Server Provider info
     public static final String myRoot = "com.IanFlanagan";
-    public static final String myHost = "localhost";
+    public static final String myHost = "Ians-MacBook-Pro.local"; // old localhost new Utils.GetHostName(); Ians-MacBook-Pro.local
     public static final String myBranch = "master";
     public static final String myCodeVersion = "1.0.1";
 

@@ -79,7 +79,7 @@ public class ApplicationTest {
 
                 rollbar.critical(e,"createErrorsAccessException() " +i+  " Illegal Access exception");
                 rollbar.critical(e,myRollbarMap);
-                rollbar.error("Error Custom Fields createErrorsAccessException(): " +i, myRollbarMap);
+                rollbar.error("Error CustomFields Example: " +i, myRollbarMap);
             }
         }
     }

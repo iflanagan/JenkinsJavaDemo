@@ -21,17 +21,14 @@ public class MyPersonProvider implements Provider<Person> {
 
         if (randomNum == 0) {
 
-           // System.out.println("Ian Person config");
             command = new Person.Builder().id(MyConfiguration.id).email(MyConfiguration.email).username(MyConfiguration.username).build();
 
         } else if (randomNum == 1) {
 
-          //  System.out.println("Finbar  Person config");
             command = new Person.Builder().id(MyConfiguration.idfb).email(MyConfiguration.emailfb).username(MyConfiguration.usernamefb).build();
 
         } else if (randomNum == 2) {
 
-          //  System.out.println("Ivan Person config");
             command = new Person.Builder().id(MyConfiguration.idiv).email(MyConfiguration.emailiv).username(MyConfiguration.usernameiv).build();
         }
           return command;

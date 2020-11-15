@@ -3,11 +3,39 @@ package com.IanFlanagan;
 import com.rollbar.api.payload.data.Person;
 import com.rollbar.notifier.provider.Provider;
 
+import java.util.Random;
+
 public class MyPersonProvider implements Provider<Person> {
 
    // @Override
     public Person provide() {
 
-        return new Person.Builder().id(MyConfiguration.id).email(MyConfiguration.email).username(MyConfiguration.username).build();
+        int max = 2;
+        int min = 0;
+
+        Random rand = new Random();
+        int randomNum = rand.nextInt((max - min) + 1) + min;
+     //   System.out.println(randomNum);
+
+        Person command = null;
+
+        if (randomNum == 0) {
+
+           // System.out.println("Ian Person config");
+            command = new Person.Builder().id(MyConfiguration.id).email(MyConfiguration.email).username(MyConfiguration.username).build();
+
+        } else if (randomNum == 1) {
+
+          //  System.out.println("Finbar  Person config");
+            command = new Person.Builder().id(MyConfiguration.idfb).email(MyConfiguration.emailfb).username(MyConfiguration.usernamefb).build();
+
+        } else if (randomNum == 2) {
+
+          //  System.out.println("Ivan Person config");
+            command = new Person.Builder().id(MyConfiguration.idiv).email(MyConfiguration.emailiv).username(MyConfiguration.usernameiv).build();
+        }
+          return command;
+     //   return new Person.Builder().id(MyConfiguration.id).email(MyConfiguration.email).username(MyConfiguration.username).build();
+
     }
 }

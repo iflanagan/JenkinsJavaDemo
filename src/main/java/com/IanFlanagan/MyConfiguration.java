@@ -11,19 +11,15 @@ public class MyConfiguration {
     public static final String email = "ian.flanagan@rollbar.com";
     public static final String username = "ianianf";
 
-/*
-    public static final String id = "24935784903";
-    public static final String email = "ivan.gomez@rollbar.com";
-    public static final String username = "ivan";
-    */
 
+    public static final String idiv = "24935784903";
+    public static final String emailiv = "ivan.gomez@rollbar.com";
+    public static final String usernameiv = "ivan";
 
-    /*
-    public static final String id = "14935784903";
-    public static final String email = "finbar.fleming@rollbar.com";
-    public static final String username = "finbar";
-    *
-     */
+    public static final String idfb = "14935784903";
+    public static final String emailfb  = "finbar.fleming@rollbar.com";
+    public static final String usernamefb = "finbar";
+
 
     // Rollbar Specific info
     public static final String env = "PROD";

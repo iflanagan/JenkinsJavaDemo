@@ -12,7 +12,6 @@ public class MyPersonProvider implements Provider<Person> {
 
         int max = 2;
         int min = 0;
-
         Random rand = new Random();
         int randomNum = rand.nextInt((max - min) + 1) + min;
      //   System.out.println(randomNum);

@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class RESTAPITest {
 
     private static final String command = " curl https://api.rollbar.com/api/1/status/ping";
-    private static final String myaccesstoken = "6c96e43dab914f658b12a1e1a1ca5517";
+    private static final String myaccesstoken = "<post_server_item>";
     private static final String myenv = "DEV";
     private static final String buildNum = "1.9";
     private static final String myUser = "ianianf";

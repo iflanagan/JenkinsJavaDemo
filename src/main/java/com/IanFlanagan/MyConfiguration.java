@@ -9,16 +9,16 @@ public class MyConfiguration {
     // Person Provider info
     public static final String id = "84935784903";
     public static final String email = "ian.flanagan@rollbar.com";
-    public static final String username = "ianianf";
+    public static final String username = "iflanagan";
 
 
     public static final String idiv = "24935784903";
-    public static final String emailiv = "ivan.gomez@rollbar.com";
+    public static final String emailiv = "testme@rollbar.com";
     public static final String usernameiv = "ivan";
 
     public static final String idfb = "14935784903";
-    public static final String emailfb  = "finbar.fleming@rollbar.com";
-    public static final String usernamefb = "finbar";
+    public static final String emailfb  = "testagain@rollbar.com";
+    public static final String usernamefb = "testagain";
 
 
     // Rollbar Specific info

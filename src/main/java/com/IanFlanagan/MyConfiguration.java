@@ -13,12 +13,12 @@ public class MyConfiguration {
 
 
     public static final String idiv = "24935784903";
-    public static final String emailiv = "testme@rollbar.com";
-    public static final String usernameiv = "ivan";
+    public static final String emailiv = "barrytest@rollbar.com";
+    public static final String usernameiv = "Barry";
 
     public static final String idfb = "14935784903";
-    public static final String emailfb  = "testagain@rollbar.com";
-    public static final String usernamefb = "testagain";
+    public static final String emailfb  = "johntest@rollbar.com";
+    public static final String usernamefb = "John";
 
 
     // Rollbar Specific info

@@ -1,7 +1,6 @@
+com/IanFlanagan/ServerProvider.class
 com/IanFlanagan/MyConfiguration.class
 com/IanFlanagan/RESTAPITest.class
-com/IanFlanagan/MyPersonProvider.class
-com/IanFlanagan/ServerProvider.class
 com/IanFlanagan/IanProvider.class
-RandomTest.class
+com/IanFlanagan/MyPersonProvider.class
 com/IanFlanagan/Utils.class

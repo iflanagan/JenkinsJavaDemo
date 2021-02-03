@@ -28,7 +28,7 @@ cat $myItemsFile | grep '"id":' | awk '{print $2}' | sed 's/,/ /g' > $myItemsLis
 # for i in `cat $myItemsList`
 for i in `cat $newFile`
 do
-echo "Resolving item: " $i " using token:" $mytoken
+echo "Resolving item: " $i "
 
 echo "https://api.rollbar.com/api/1/item/$i"
 #curl -H \"X-Rollbar-Access-Token: $mytoken\" \ -X GET 'https://api.rollbar.com/api/1/item/$i'

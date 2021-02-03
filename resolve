@@ -1,13 +1,12 @@
 #!/bin/bash
 
-# author Ian Flanagan
-# it randomly gets a list of all items and then will resolve 1 random item
-
 mytoken=$1
+buidnum=$2
 myItemsList=itemslists
 myItemsFile=items
 newFile=newcommand
 myConfigFile=command
+buidnum=$2
 
 echo "Resolving items now"
 
@@ -28,14 +27,14 @@ cat $myItemsFile | grep '"id":' | awk '{print $2}' | sed 's/,/ /g' > $myItemsLis
 # for i in `cat $myItemsList`
 for i in `cat $newFile`
 do
-echo "Resolving item: " $i "
+echo "Resolving item: " $i " using token:" $mytoken
 
 echo "https://api.rollbar.com/api/1/item/$i"
 #curl -H \"X-Rollbar-Access-Token: $mytoken\" \ -X GET 'https://api.rollbar.com/api/1/item/$i'
 
 echo "curl -H \"X-Rollbar-Access-Token: $mytoken\" \
 -H \"Content-Type: application/json\" -X PATCH  'https://api.rollbar.com/api/1/item/$i' \
---data '{\"status\": \"resolved\"}'" >> $myConfigFile
+--data '{\"status\": \"resolved\",\"resolved_in_version\": \"$buidnum:\"}'" >> $myConfigFile
 echo "" >> $myConfigFile
 
 # delete all occurences 
